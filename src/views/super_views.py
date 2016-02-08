@@ -9,7 +9,7 @@ class SuperViews():
         self.url_print_sender = UrlPrintSender(self.interface_layer)
         self.routes = [
             ("^/help", self.help),
-            ("^/about", self.about),
+            # ("^/about", self.about),
             ("^/roll", self.roll),
             ("/(?P<evenOrOdd>even|odd)$", self.even_or_odd),
         ]
@@ -38,7 +38,6 @@ HELP_TEXT = """ [HELP]
 /about - About
 /s(earch) - I'm lucky!
 /i(mage) - I'm lucky with image!
-/t(ts) - Text to speech.
 /(even)(odd) - Amazing game.
 /ping - Pong.
 /echo - Echo.

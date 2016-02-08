@@ -19,7 +19,8 @@ from views.bing import BingViews
 
 # Basic regex routes
 routes = [("^/ping", basic_views.ping),
-          ("^/e(cho)?\s(?P<echo_message>[^$]+)$", basic_views.echo)]
+          ("^/e(cho)?\s(?P<echo_message>[^$]+)$", basic_views.echo),
+          ("/^.*?\bcat\b.*?\bmat\b.*?$/m", basic_views.memo_fag)]
 
 
 class RouteLayer(YowInterfaceLayer):
@@ -35,7 +36,7 @@ class RouteLayer(YowInterfaceLayer):
 
         # Google views to handle tts, search and youtube
         routes.extend(GoogleViews(self).routes)
-        
+
         # Bing views to handle image search
         routes.extend(BingViews(self).routes)
 

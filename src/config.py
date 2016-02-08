@@ -6,12 +6,12 @@
 
     > yowsup-cli registration -C <CountryCode> -r sms -p <Phone Number with Country Code>
     ex.:
-    yowsup-cli registration -C 55 -r sms -p 554899998888
+    yowsup-cli registration -C 52 -r sms -p 5218110424663
 
     Then whatsapp will send a key via sms to the phone.
     Get that key then run:
 
-    > yowsup-cli registration -C 55 -R <sms-key> -p 554899998888
+    > yowsup-cli registration -C 52 -R 767-168 -p 5218110424663
 
     status: ok
     kind: free
@@ -27,7 +27,7 @@
     Now just get the login and pw, and replace bellow. :)
 
 """
-auth = ("XXXXXXXXXXXX", "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+auth = ("5218110424663", "GVKpZsMfqFCxPymRlgkJg8En+Tc=")
 
 # If filter_groups is True, the bot only stays
 # at groups that there is at least one admin on it.
