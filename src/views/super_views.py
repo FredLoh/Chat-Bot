@@ -11,7 +11,7 @@ class SuperViews():
         self.url_print_sender = UrlPrintSender(self.interface_layer)
         self.routes = [
             # ("/(?P<evenOrOdd>even|odd)$", self.even_or_odd),
-            (".*", self.beban_spell_checker)
+            ("^beban", self.beban_spell_checker)
         ]
 
     def about(self, message=None, match=None, to=None):
