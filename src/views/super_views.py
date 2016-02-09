@@ -14,8 +14,6 @@ class SuperViews():
             ("^beban", self.beban_spell_checker)
         ]
 
-    def about(self, message=None, match=None, to=None):
-        self.url_print_sender.send_by_url(message.getFrom(), "https://github.com/joaoricardo000/whatsapp-bot-seed", ABOUT_TEXT)
 
     def even_or_odd(self, message=None, match=None, to=None):
         is_odd = len(match.group("evenOrOdd")) % 2
@@ -25,12 +23,8 @@ class SuperViews():
         else:
             return TextMessageProtocolEntity("[%d]\nYou lose!" % num, to=message.getFrom())
 
-    def help(self, message=None, match=None, to=None):
-        print()
-        return TextMessageProtocolEntity(HELP_TEXT, to=message.getFrom())
-
     def beban_spell_checker(self, message=None, match=None, to=None):
-        # print(message.getBody())
+        print(message.getBody())
         correctionList = ""
         text = message.getBody()
         d = enchant.DictWithPWL("es_MX","wordList.txt")
