@@ -24,7 +24,7 @@ class SuperViews():
             return TextMessageProtocolEntity("[%d]\nYou lose!" % num, to=message.getFrom())
 
     def beban_spell_checker(self, message=None, match=None, to=None):
-        print(message.getBody())
+        # print(message.getBody())
         correctionList = ""
         text = message.getBody()
         d = enchant.DictWithPWL("es_MX","wordList.txt")
