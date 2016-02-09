@@ -1,6 +1,8 @@
 from utils.media_sender import UrlPrintSender
 from yowsup.layers.protocol_messages.protocolentities.message_text import TextMessageProtocolEntity
 import random
+import enchant
+import re
 
 
 class SuperViews():
@@ -9,9 +11,10 @@ class SuperViews():
         self.url_print_sender = UrlPrintSender(self.interface_layer)
         self.routes = [
             ("^/help", self.help),
-            # ("^/about", self.about),
+            ("^/about", self.about),
             ("^/roll", self.roll),
             ("/(?P<evenOrOdd>even|odd)$", self.even_or_odd),
+            ("^beban", self.beban_spell_checker)
         ]
 
     def about(self, message=None, match=None, to=None):
@@ -29,16 +32,33 @@ class SuperViews():
             return TextMessageProtocolEntity("[%d]\nYou lose!" % num, to=message.getFrom())
 
     def help(self, message=None, match=None, to=None):
+        print()
         return TextMessageProtocolEntity(HELP_TEXT, to=message.getFrom())
+
+    def beban_spell_checker(self, message=None, match=None, to=None):
+        # print(message.getBody())
+        correctionList = ""
+        text = message.getBody()
+        d = enchant.Dict("es_MX")
+        d_en = enchant.Dict("en_US")
+
+        wordList = text.split()
+        for word in wordList:
+          if(word.isalnum() == True):
+            if(d.check(word) == False):
+                if(d_en.check(word) == False):
+                  solutions = d.suggest(word)
+                  sol = str(solutions[0])
+                  if(sol.isalnum() == False):
+                    correctionList += sol + "* "
+        if (correctionList != ""):
+            return TextMessageProtocolEntity(correctionList, to=message.getFrom())
 
 
 HELP_TEXT = """ [HELP]
 - Commands
 /help - Show this message.
 /about - About
-/s(earch) - I'm lucky!
-/i(mage) - I'm lucky with image!
-/(even)(odd) - Amazing game.
 /ping - Pong.
 /echo - Echo.
 /roll - Roll a dice.
@@ -50,7 +70,4 @@ Automatic:
     - Youtube videos.
 """
 
-ABOUT_TEXT = """ [Whatsapp Bot Seed]
-A small open source python framework to create a whatsapp bot, with regex-callback message routing.
-https://github.com/joaoricardo000/whatsapp-bot-seed
-"""
+ABOUT_TEXT = """ My name is Boto-San"""

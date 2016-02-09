@@ -19,8 +19,7 @@ from views.bing import BingViews
 
 # Basic regex routes
 routes = [("^/ping", basic_views.ping),
-          ("^/e(cho)?\s(?P<echo_message>[^$]+)$", basic_views.echo),
-          ("/^.*?\bcat\b.*?\bmat\b.*?$/m", basic_views.memo_fag)]
+          ("^/e(cho)?\s(?P<echo_message>[^$]+)$", basic_views.echo)]
 
 
 class RouteLayer(YowInterfaceLayer):
@@ -56,6 +55,10 @@ class RouteLayer(YowInterfaceLayer):
     def route(self, message):
         "Get the text from message and tests on every route for a match"
         text = message.getBody()
+        print(message.getParticipant())
+        # test = "1"
+        if(str(message.getParticipant()) == "5218183660872@s.whatsapp.net"):
+            text = "beban"
         for route, callback in self.views:
             match = route.match(text)
             if match:  # in case of regex match, the callback is called, passing the message and the match object
