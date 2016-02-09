@@ -44,6 +44,7 @@ class SuperViews():
               print("Not spanish")
                 # if(d_en.check(word) == False):
               solutions = d.suggest(word)
+              print(solutions)
               sol = str(solutions[0])
               if(sol.isalnum() == False):
                 correctionList += sol + "* "
