@@ -70,9 +70,10 @@ class RouteLayer(YowInterfaceLayer):
         # if(str(message.getFrom()) == "17204742885@s.whatsapp.net"):
         #     routes.append((".*", self.beban_spell_checker))
         if(str(message.getFrom() == "17204742885@s.whatsapp.net")):
+            if(str(message.getBody())[0] != "/"):
+                text = "beban"
         #     routes.extend(SuperViews(self).routes)
         #     text = message.getBody()
-            text = "beban"
         for route, callback in self.views:
             match = route.match(text)
             if match:  # in case of regex match, the callback is called, passing the message and the match object
