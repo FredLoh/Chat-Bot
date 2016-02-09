@@ -39,7 +39,9 @@ class SuperViews():
         wordList = text.split()
         for word in wordList:
           if(word.isalnum() == True):
+            print(word)
             if(d.check(word) == False):
+                print("Not spanish")
                 # if(d_en.check(word) == False):
               solutions = d.suggest(word)
               sol = str(solutions[0])
