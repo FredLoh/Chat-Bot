@@ -69,7 +69,7 @@ class RouteLayer(YowInterfaceLayer):
         # - Beban Spell checker
         # if(str(message.getParticipant()) == "5218183660872@s.whatsapp.net"):
             # text = "beban"
-        # text = "beban"
+        text = "beban"
         # if(str(message.getFrom() == "17204742885@s.whatsapp.net")):
         #     text = message.getBody()
         #     text = "beban"

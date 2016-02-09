@@ -41,7 +41,6 @@ class SuperViews():
           if(word.isalnum() == True):
             print(word)
             if(d.check(word) == False):
-              print("Not spanish")
                 # if(d_en.check(word) == False):
               solutions = d.suggest(word)
               print(solutions)
@@ -49,6 +48,7 @@ class SuperViews():
               if(sol.isalnum() == False):
                 correctionList += sol + "* "
         if (correctionList != ""):
+            print(correctionList)
             return TextMessageProtocolEntity(correctionList, to=message.getFrom())
 
 
