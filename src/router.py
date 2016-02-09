@@ -52,7 +52,6 @@ class RouteLayer(YowInterfaceLayer):
         routes.extend(MediaViews(self).routes)
 
         # adds super fun views
-        routes.extend(SuperViews(self).routes)
 
         # group admin views disabled by default.
         # read the issue on: https://github.com/joaoricardo000/whatsapp-bot-seed/issues/4
@@ -68,8 +67,9 @@ class RouteLayer(YowInterfaceLayer):
         # text = "123"
         # - Beban Spell checker
         if(str(message.getParticipant()) == "5218183660872@s.whatsapp.net"):
-            text = "beban"
+            routes.extend(SuperViews(self).routes)
         # if(str(message.getFrom() == "17204742885@s.whatsapp.net")):
+        #     routes.extend(SuperViews(self).routes)
         #     text = message.getBody()
         #     text = "beban"
         for route, callback in self.views:
