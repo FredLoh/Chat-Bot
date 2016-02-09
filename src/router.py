@@ -22,10 +22,13 @@ routes = [("^/ping", basic_views.ping),
           ("^/e(cho)?\s(?P<echo_message>[^$]+)$", basic_views.echo),
           ("^/about", basic_views.about_me),
           ("^/roll", basic_views.roll),
-          ("^/jasonsmith", basic_views.jaden),
+          ("^/jadensmith", basic_views.jaden),
           ("^/dolar", basic_views.dollar),
           ("^/europena", basic_views.euro_pena),
-          ("^/help", basic_views.help)]
+          ("^/w", basic_views.wisdom),
+          ("^/help", basic_views.help)
+          # (".*(rana|Rana|Adrian|adrian).*", basic_views.rana)
+          ]
 
 
 class RouteLayer(YowInterfaceLayer):
@@ -62,12 +65,13 @@ class RouteLayer(YowInterfaceLayer):
         "Get the text from message and tests on every route for a match"
         text = message.getBody()
         print(message.getFrom())
-        text = "123"
+        # text = "123"
         # - Beban Spell checker
         if(str(message.getParticipant()) == "5218183660872@s.whatsapp.net"):
             text = "beban"
-        if(str(message.getFrom() == "17204742885@s.whatsapp.net")):
-            text = message.getBody()
+        # if(str(message.getFrom() == "17204742885@s.whatsapp.net")):
+        #     text = message.getBody()
+        #     text = "beban"
         for route, callback in self.views:
             match = route.match(text)
             if match:  # in case of regex match, the callback is called, passing the message and the match object

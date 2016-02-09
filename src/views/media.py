@@ -26,6 +26,7 @@ class MediaViews():
             ("https?:\/\/(?:[\w\-]+\.)+[a-z]{2,6}(?:\/[^\/#?]+)+\.(?:mp4|webm)($|\?[^\s]+$)", self.send_video),
             # ("https?:\/\/[^$]+$", self.send_url_print),
             ("^/t(ts)?\s(?P<tts_text>[^$]+)$", self.send_tts)
+            # ("/w(isdom)?\s([\"])(?P<top>[^\"$]+)\"\s([\"])(?P<bottom>[^$]+)([\"])", self.send_wisdom)
         ]
 
     def send_video(self, message, match):
@@ -41,4 +42,3 @@ class MediaViews():
     def send_tts(self, message, match):
         tts_text = match.group("tts_text")
         self.tts_sender.send(jid=message.getFrom(), text=tts_text)
-

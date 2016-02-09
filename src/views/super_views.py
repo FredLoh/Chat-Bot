@@ -33,7 +33,7 @@ class SuperViews():
         # print(message.getBody())
         correctionList = ""
         text = message.getBody()
-        d = enchant.Dict("es_MX")
+        d = enchant.DictWithPWL("es_MX","wordList.txt")
         d_en = enchant.Dict("en_US")
 
         wordList = text.split()
@@ -64,4 +64,4 @@ Automatic:
     - Youtube videos.
 """
 
-ABOUT_TEXT = """ My name is Boto-San"""
+ABOUT_TEXT = """My name is Boto-San"""

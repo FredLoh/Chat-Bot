@@ -3,7 +3,7 @@ import random
 import unirest
 
 def help(message, match):
-    help_msg = "/ping, /echo <msg>, /about, /roll, /jasonsmith"
+    help_msg = "/ping, /echo <msg>, /about, /roll, /jasonsmith /europena"
     return TextMessageProtocolEntity(help_msg, to=message.getFrom())
 
 def echo(message, match):
@@ -209,6 +209,50 @@ def jaden(message, match):
     tweet = firstphraselist[random1] + " " + secondphraselist[random2] + " " + thirdphraselist[random3]
     return TextMessageProtocolEntity(tweet, to=message.getFrom())
 
+def wisdom(message, match):
+    sayings = [
+    "A bird does not sing because it has an answer.",
+    "It sings because it has a song.",
+    "A bit of fragrance clings to the hand that gives flowers.",
+    "A book holds a house of gold.",
+    "A book is like a garden carried in the pocket.",
+    "A book tightly shut is but a block of paper.",
+    "A child's life is like a piece of paper on which every person leaves a mark.",
+    "A diamond with a flaw is worth more than a pebble without imperfections.",
+    "A filthy mouth will not utter decent language.",
+    "A fool judges people by the presents they give him.",
+    "A gem is not polished without rubbing, nor a man perfected without trials.",
+    "A nation's treasure is in its scholars.",
+    "A rat who gnaws at a cat's tail invites destruction.",
+    "Be not afraid of growing slowly, be afraid only of standing still.",
+    "Be the first to the field and the last to the couch.",
+    "Deep doubts, deep wisdom; small doubts, little wisdom.",
+    "Dig the well before you are thirsty.",
+    "Do good, reap good; do evil, reap evil.",
+    "Do not employ handsome servants.",
+    "Do not fear going forward slowly; fear only to stand still.",
+    "Do not remove a fly from your friend's forehead with a hatchet.",
+    "A small fire is soon quenched.",
+    "Intention of required study, the word worth a thousand gold.",
+    "Bless never come both, and accidents never come alone.",
+    "Those who jump off a Paris bridge are in Seine.",
+    "A cardboard belt would be a waist of paper.",
+    "Those who throw dirt are sure to lose ground.",
+    "One dog barks at something, the rest bark at him.",
+    "Man who places head in sand will get kicked in the end.",
+    "Man who run in front of car get tired.",
+    "Man who run behind car get exhausted.",
+    "Man with one chopstick go hungry.",
+    "Man who sinks into woman's arms soon will find arms in woman's sink.",
+    "Wise man give wife upright organ.",
+    "All men eat, but Fu Man Chu.",
+    "If you want pretty nurse, you must be patient.",
+    "Wife who put husband in doghouse soon find him in cathouse."]
+    random1 = random.randint(1, len(sayings))
+    tweet = sayings[random1]
+    return TextMessageProtocolEntity(tweet, to=message.getFrom())
+
+
 def dollar(message, match):
     response = unirest.get("https://currency-exchange.p.mashape.com/exchange?from=USD&q=1&to=MXN",
       headers={
@@ -238,3 +282,6 @@ def euro_pena(message, match):
 
     response_String = "Euro: " + euro_value + "    Forint: " + peso_value + "    Euro-HUN: " + euro_huf
     return TextMessageProtocolEntity(response_String, to=message.getFrom())
+
+def rana(message, match):
+    return TextMessageProtocolEntity("*smegma", to=message.getFrom())
