@@ -70,8 +70,9 @@ class RouteLayer(YowInterfaceLayer):
         # if(str(message.getFrom()) == "17204742885@s.whatsapp.net"):
         #     routes.append((".*", self.beban_spell_checker))
         if(str(message.getParticipant()) == "5218183660872@s.whatsapp.net"):
-            if(str(message.getBody())[0] != "/" || str(message.getBody())[0] != "h"):
-                text = "beban"
+            if(str(message.getBody())[0] != "/"):
+                if(str(message.getBody())[0] != "h"):
+                    text = "beban"
         #     routes.extend(SuperViews(self).routes)
         #     text = message.getBody()
         for route, callback in self.views:
