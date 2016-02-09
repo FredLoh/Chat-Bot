@@ -10,18 +10,12 @@ class SuperViews():
         self.interface_layer = interface_layer
         self.url_print_sender = UrlPrintSender(self.interface_layer)
         self.routes = [
-            ("^/help", self.help),
-            ("^/about", self.about),
-            ("^/roll", self.roll),
-            ("/(?P<evenOrOdd>even|odd)$", self.even_or_odd),
+            # ("/(?P<evenOrOdd>even|odd)$", self.even_or_odd),
             ("^beban", self.beban_spell_checker)
         ]
 
     def about(self, message=None, match=None, to=None):
         self.url_print_sender.send_by_url(message.getFrom(), "https://github.com/joaoricardo000/whatsapp-bot-seed", ABOUT_TEXT)
-
-    def roll(self, message=None, match=None, to=None):
-        return TextMessageProtocolEntity("[%d]" % random.randint(1, 6), to=message.getFrom())
 
     def even_or_odd(self, message=None, match=None, to=None):
         is_odd = len(match.group("evenOrOdd")) % 2
@@ -46,11 +40,11 @@ class SuperViews():
         for word in wordList:
           if(word.isalnum() == True):
             if(d.check(word) == False):
-                if(d_en.check(word) == False):
-                  solutions = d.suggest(word)
-                  sol = str(solutions[0])
-                  if(sol.isalnum() == False):
-                    correctionList += sol + "* "
+                # if(d_en.check(word) == False):
+              solutions = d.suggest(word)
+              sol = str(solutions[0])
+              if(sol.isalnum() == False):
+                correctionList += sol + "* "
         if (correctionList != ""):
             return TextMessageProtocolEntity(correctionList, to=message.getFrom())
 
