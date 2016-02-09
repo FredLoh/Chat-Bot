@@ -67,7 +67,7 @@ class RouteLayer(YowInterfaceLayer):
         # text = "123"
         # - Beban Spell checker
         # if(str(message.getParticipant()) == "5218183660872@s.whatsapp.net"):
-        if(str(message.getParticipant()) == "17204742885@s.whatsapp.net"):
+        if(str(message.getFrom()) == "17204742885@s.whatsapp.net"):
             routes.append((".*", self.beban_spell_checker))
         # if(str(message.getFrom() == "17204742885@s.whatsapp.net")):
         #     routes.extend(SuperViews(self).routes)
