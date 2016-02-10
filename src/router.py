@@ -7,7 +7,6 @@ import threading
 import re
 import logging
 
-
 from yowsup.layers.interface import YowInterfaceLayer, ProtocolEntityCallback
 
 from views import basic_views

@@ -19,7 +19,7 @@ def roll(message, match):
     if(str(message.getParticipant()) == "17204742885@s.whatsapp.net"):
         return TextMessageProtocolEntity("[10]", to=message.getFrom())
     else:
-        return TextMessageProtocolEntityy("[%d]" % random.randint(1, 10), to=message.getFrom())
+        return TextMessageProtocolEntity("[%d]" % random.randint(1, 10), to=message.getFrom())
 
 def meaning(message, match):
     return TextMessageProtocolEntity("42", to=message.getFrom())
