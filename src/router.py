@@ -29,7 +29,7 @@ routes = [("^/ping", basic_views.ping),
           ("^/meaningoflife", basic_views.meaning),
           ("^/caracolamagica", basic_views.caracola),
           ("^/lotr", basic_views.lord_of_the_rings),
-          ("((gracias|Gracias|thx)(.|\n)*(boto-san|Boto-San|Boto San))|((boto-san|Boto-San|Boto San)(.|\n)*(gracias|Gracias|thx))", basic_views.thank_you),
+          ("((thanks|Thanks|gracias|Gracias|thx|Te amo|te amo|i love you)(.|\n)*(BotoSan|boto-san|Boto-San|Boto San|botosan|boto san))|((BotoSan|boto-san|Boto-San|Boto San|botosan|boto san)(.|\n)*(thanks|Thanks|gracias|Gracias|thx|Te amo|te amo|i love you))", basic_views.thank_you),
           ("^/help", basic_views.help)
           # (".*(rana|Rana|Adrian|adrian).*", basic_views.rana)
           ]
@@ -68,6 +68,7 @@ class RouteLayer(YowInterfaceLayer):
         "Get the text from message and tests on every route for a match"
         text = message.getBody()
         print(message.getFrom())
+        print(message.getBody())
         # text = "123"
         # - Beban Spell checker
         #
