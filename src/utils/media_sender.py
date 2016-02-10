@@ -194,9 +194,9 @@ class EspeakTtsSender(AudioSender):
             logging.exception(e)
             self._on_error(jid)
 
-    def tts_record(self, text, lang='female2'):
+    def tts_record(self, text, lang='en-sc'):
         file_path = self._build_file_path(text)
-        cmd = "espeak -v %s -w %s -s 135 '%s'" % (lang, file_path, text)
+        cmd = "espeak -v%s -w %s -s 135 '%s'" % (lang, file_path, text)
         subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE).wait()
         return file_path
 
