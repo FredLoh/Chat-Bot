@@ -371,4 +371,5 @@ def euro_pena(message, match):
     return TextMessageProtocolEntity(response_String, to=message.getFrom())
 
 def rana(message, match):
-    return TextMessageProtocolEntity("*smegma", to=message.getFrom())
+    if(str(message.getParticipant()) == "5218115445683@s.whatsapp.net"):
+        return TextMessageProtocolEntity("*smegma", to=message.getFrom())
