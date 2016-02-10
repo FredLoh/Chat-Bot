@@ -288,7 +288,7 @@ def lord_of_the_rings(message, match):
     "Wicked men. Servants of Sauron. They are called to Mordor. The Dark One is gathering all armies to him. It won't be long now. He will soon be ready.",
     "Ugluk: Looks like meat's back on the menu, boys.",
     "Don't follow the lights.",
-    "Sméagol... Why does he cry, Sméagol?\nCruel men hurts us. Master tricksed us.\nOf course he did. I told you he was tricksy. I told you he was false.\nMaster is our friend... our friend.\nMaster betrayed us.",
+    "Smeagol... Why does he cry, Smeagol?\nCruel men hurts us. Master tricksed us.\nOf course he did. I told you he was tricksy. I told you he was false.\nMaster is our friend... our friend.\nMaster betrayed us.",
     "What we need is a few good taters.",
     "It's been going for hours.\nThey must have decided something by now.\nDecided? No, we have just finished saying Good Morning.",
     "It's true you don't see many dwarf women. And in fact, they are so alike in voice and appearance, that they are often mistaken for dwarf men.",
