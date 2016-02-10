@@ -203,9 +203,9 @@ def jaden(message, match):
              " ",
              " ",
              " "]
-    random1 = random.randint(1, len(firstphraselist))
-    random2 = random.randint(1, len(secondphraselist))
-    random3 = random.randint(1, len(thirdphraselist))
+    random1 = random.randint(1, (len(firstphraselist)-1))
+    random2 = random.randint(1, (len(secondphraselist)-1))
+    random3 = random.randint(1, (len(thirdphraselist)-1))
     tweet = firstphraselist[random1] + " " + secondphraselist[random2] + " " + thirdphraselist[random3]
     return TextMessageProtocolEntity(tweet, to=message.getFrom())
 
@@ -248,7 +248,7 @@ def wisdom(message, match):
     "All men eat, but Fu Man Chu.",
     "If you want pretty nurse, you must be patient.",
     "Wife who put husband in doghouse soon find him in cathouse."]
-    random1 = random.randint(1, len(sayings))
+    random1 = random.randint(1, (len(sayings)-1))
     tweet = sayings[random1]
     return TextMessageProtocolEntity(tweet, to=message.getFrom())
 
