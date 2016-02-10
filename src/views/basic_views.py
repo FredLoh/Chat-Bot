@@ -18,7 +18,7 @@ def about_me(message, match):
     return TextMessageProtocolEntity("My name is Boto-San!", to=message.getFrom())
 
 def thank_you(message, match):
-    s = u'❤'
+    s = '\U0001f63b'
     return TextMessageProtocolEntity(s, to=message.getFrom())
 
 def roll(message, match):
