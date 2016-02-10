@@ -16,7 +16,8 @@ def about_me(message, match):
     return TextMessageProtocolEntity("My name is Boto-San!", to=message.getFrom())
 
 def thank_you(message, match):
-    return TextMessageProtocolEntity("❤", to=message.getFrom())
+    s = u'❤'
+    return TextMessageProtocolEntity(s, to=message.getFrom())
 
 def roll(message, match):
     if(str(message.getParticipant()) == "17204742885@s.whatsapp.net"):
