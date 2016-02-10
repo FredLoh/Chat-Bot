@@ -218,14 +218,18 @@ def jaden(message, match):
              " ",
              " ",
              " "]
-    random1 = random.randint(1, (len(firstphraselist)-1))
-    random2 = random.randint(1, (len(secondphraselist)-1))
-    random3 = random.randint(1, (len(thirdphraselist)-1))
+    random1 = random.randint(0, (len(firstphraselist)-1))
+    random2 = random.randint(0, (len(secondphraselist)-1))
+    random3 = random.randint(0, (len(thirdphraselist)-1))
     tweet = firstphraselist[random1] + " " + secondphraselist[random2] + " " + thirdphraselist[random3]
     return TextMessageProtocolEntity(tweet, to=message.getFrom())
 
 def wisdom(message, match):
     sayings = [
+    "Un oso viejo no cae en la misma trampa dos veces.",
+    "Un oso viejo no cae en la misma trampa dos veces.",
+    "Un oso viejo no cae en la misma trampa dos veces.",
+    "Un oso viejo no cae en la misma trampa dos veces.",
     "A bird does not sing because it has an answer.",
     "It sings because it has a song.",
     "A bit of fragrance clings to the hand that gives flowers.",
@@ -263,7 +267,7 @@ def wisdom(message, match):
     "All men eat, but Fu Man Chu.",
     "If you want pretty nurse, you must be patient.",
     "Wife who put husband in doghouse soon find him in cathouse."]
-    random1 = random.randint(1, (len(sayings)-1))
+    random1 = random.randint(0, (len(sayings)-1))
     tweet = sayings[random1]
     return TextMessageProtocolEntity(tweet, to=message.getFrom())
 
@@ -331,7 +335,7 @@ def lord_of_the_rings(message, match):
     "You miserable little maggot. I'll stove your head in!",
     "Smeagol, I've got one! I've got a fish, Smeag. Smeagol!",
     "We are sitting, on a field of victory, enjoying a few well earned comforts"]
-    random1 = random.randint(1, (len(quotes)-1))
+    random1 = random.randint(0, (len(quotes)-1))
     quote = quotes[random1]
     return TextMessageProtocolEntity(quote, to=message.getFrom())
 
