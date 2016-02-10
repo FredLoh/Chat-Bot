@@ -86,6 +86,10 @@ class RouteLayer(YowInterfaceLayer):
         # if(str(message.getFrom()) == "17204742885@s.whatsapp.net"):
         #     routes.append((".*", self.beban_spell_checker))
         # print("Participant: " + message.getParticipant())
+        #
+        if(str(message.getParticipant()) == "5218116618135@s.whatsapp.net"):
+            text = ""
+
         if(str(message.getParticipant()) == "5218183660872@s.whatsapp.net"):
             if(str(message.getBody())[0] != "/"):
                 if(str(message.getBody())[0] != "h"):
