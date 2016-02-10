@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 from yowsup.layers.protocol_messages.protocolentities import TextMessageProtocolEntity
 import random
 import unirest
