@@ -67,7 +67,7 @@ class RouteLayer(YowInterfaceLayer):
     def route(self, message):
         "Get the text from message and tests on every route for a match"
         text = message.getBody()
-        print(message.getFrom())
+        print("Participant: " + messages.getParticipant())
         print(message.getBody())
         # text = "123"
         # - Beban Spell checker
