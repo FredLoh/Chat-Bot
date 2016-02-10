@@ -17,6 +17,13 @@ from views.google import GoogleViews
 from views.bing import BingViews
 
 
+ilyregex = "(Te Amo|te amo|Te amo|I love you|i love you|ily|ILY|Ily|TE AMO|I LOVE YOU|\<3)"
+tyregex = "(Thanks|thanks|THANKS|THANK YOU|Thank you|Thank You|thank you|thankyou|Thankyou|THANKYOU|Gracias|gracias|GRACIAS|thx|THX|Thx|TY|Ty|ty)"
+gnregex = "(Good night|good night|Good Night|GOOD NIGHT|BUENAS NOCHES|Buenas noches|buenas noches|Buenas Noches|Hasta ma.ana|hasta ma.ana|Hasta Ma.ana|HASTA MA.ANA)"
+hregex = "(Hola|hola|HOLA|HELLO|Hello|hello|Good morning|GOOD MORNING|good morning|buenos d.as|Buenos d.as)"
+gbregex = "(Adi.s|adi.s|ADI.S|Good bye|GOODBYE|Good Bye|goodbye|Goodbye|good bye|GOOD BYE)"
+bsregex = "(Boto-san|BotoSan|boto-san|Boto-San|Boto San|botosan|boto san|Boto san|Botosan|BOTOSAN|BOTO SAN|BOTO-SAN)"
+
 # Basic regex routes
 routes = [("^/ping", basic_views.ping),
           ("^/e(cho)?\s(?P<echo_message>[^$]+)$", basic_views.echo),
@@ -29,7 +36,11 @@ routes = [("^/ping", basic_views.ping),
           ("^/meaningoflife", basic_views.meaning),
           ("^/caracolamagica", basic_views.caracola),
           ("^/lotr", basic_views.lord_of_the_rings),
-          ("((thanks|Thanks|gracias|Gracias|thx|Te amo|te amo|i love you|Good night|good night|Good Night|buenas noches|Buenas Noches|Buenas noches)(.|\n)*(Boto-san|BotoSan|boto-san|Boto-San|Boto San|botosan|boto san))|((Boto-san|BotoSan|boto-san|Boto-San|Boto San|botosan|boto san)(.|\n)*(thanks|Thanks|gracias|Gracias|thx|Te amo|te amo|i love you|Good night|good night|Good Night|buenas noches|Buenas Noches|Buenas noches))", basic_views.thank_you),
+          ("(.*" + ilyregex + "(.|\n)*" + bsregex + ".*)|(.*" + bsregex + "(.|\n)*" + ilyregex + ".*)", basic_views.love_you),
+          ("(.*" + tyregex + "(.|\n)*" + bsregex + ".*)|(.*" + bsregex + "(.|\n)*" + tyregex + ".*)", basic_views.thank_you),
+          ("(.*" + gnregex + "(.|\n)*" + bsregex + ".*)|(.*" + bsregex + "(.|\n)*" + gnregex + ".*)", basic_views.good_night),
+          ("(.*" + hregex + "(.|\n)*" + bsregex + ".*)|(.*" + bsregex + "(.|\n)*" + hregex + ".*)", basic_views.hello),
+          ("(.*" + gbregex + "(.|\n)*" + bsregex + ".*)|(.*" + bsregex + "(.|\n)*" + gbregex + ".*)", basic_views.goodbye),
           ("^/help", basic_views.help),
           (".*(rana|Rana|Adrian|adrian).*", basic_views.rana)
           ]
