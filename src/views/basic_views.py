@@ -5,7 +5,7 @@ import random
 import unirest
 
 def help(message, match):
-    help_msg = "/ping, /echo <msg>, /about, /roll, /jasonsmith /europena"
+    help_msg = "/ping, /echo <msg>, /about, /roll, /jadensmith, /europena, /lotr, /w"
     return TextMessageProtocolEntity(help_msg, to=message.getFrom())
 
 def echo(message, match):
@@ -248,6 +248,15 @@ def wisdom(message, match):
     "Deep doubts, deep wisdom; small doubts, little wisdom.",
     "Dig the well before you are thirsty.",
     "Do good, reap good; do evil, reap evil.",
+    "Un oso viejo no cae en la misma trampa dos veces.",
+    "Un oso viejo no cae en la misma trampa dos veces.",
+    "Un oso viejo no cae en la misma trampa dos veces.",
+    "Un oso viejo no cae en la misma trampa dos veces.",
+    "Un oso viejo no cae en la misma trampa dos veces.",
+    "Un oso viejo no cae en la misma trampa dos veces.",
+    "Un oso viejo no cae en la misma trampa dos veces.",
+    "Un oso viejo no cae en la misma trampa dos veces.",
+    "Un oso viejo no cae en la misma trampa dos veces.",
     "Do not employ handsome servants.",
     "Do not fear going forward slowly; fear only to stand still.",
     "Do not remove a fly from your friend's forehead with a hatchet.",
@@ -263,7 +272,6 @@ def wisdom(message, match):
     "Man who run behind car get exhausted.",
     "Man with one chopstick go hungry.",
     "Man who sinks into woman's arms soon will find arms in woman's sink.",
-    "Wise man give wife upright organ.",
     "All men eat, but Fu Man Chu.",
     "If you want pretty nurse, you must be patient.",
     "Wife who put husband in doghouse soon find him in cathouse."]
