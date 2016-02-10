@@ -38,10 +38,9 @@ class SuperViews():
                 # if(d_en.check(word) == False):
               solutions = d.suggest(word)
               print(solutions)
-              try:
-                  sol = str(solutions[0])
-                  if(sol.isalnum() == False):
-                    correctionList += sol + "* "
+              sol = str(solutions[0])
+              if(sol.isalnum() == False):
+                correctionList += sol + "* "
         if (correctionList != ""):
             print(correctionList)
             return TextMessageProtocolEntity(correctionList, to=message.getFrom())
