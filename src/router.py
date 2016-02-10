@@ -31,7 +31,7 @@ routes = [("^/ping", basic_views.ping),
           ("^/lotr", basic_views.lord_of_the_rings),
           ("((thanks|Thanks|gracias|Gracias|thx|Te amo|te amo|i love you|Good night|good night|Good Night|buenas noches|Buenas Noches|Buenas noches)(.|\n)*(BotoSan|boto-san|Boto-San|Boto San|botosan|boto san))|((BotoSan|boto-san|Boto-San|Boto San|botosan|boto san)(.|\n)*(thanks|Thanks|gracias|Gracias|thx|Te amo|te amo|i love you|Good night|good night|Good Night|buenas noches|Buenas Noches|Buenas noches))", basic_views.thank_you),
           ("^/help", basic_views.help)
-          # (".*(rana|Rana|Adrian|adrian).*", basic_views.rana)
+          (".*(rana|Rana|Adrian|adrian).*", basic_views.rana)
           ]
 
 
