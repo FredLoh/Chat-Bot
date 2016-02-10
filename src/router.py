@@ -28,6 +28,7 @@ routes = [("^/ping", basic_views.ping),
           ("^/w", basic_views.wisdom),
           ("^/meaningoflife", basic_views.meaning),
           ("^/caracolamagica", basic_views.caracola),
+          ("^/lotr", basic_views.lord_of_the_rings),
           ("^/help", basic_views.help)
           # (".*(rana|Rana|Adrian|adrian).*", basic_views.rana)
           ]
