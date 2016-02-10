@@ -15,6 +15,9 @@ def ping(message, match):
 def about_me(message, match):
     return TextMessageProtocolEntity("My name is Boto-San!", to=message.getFrom())
 
+def thank_you(message, match):
+    return TextMessageProtocolEntity("De nada!", to=message.getFrom())
+
 def roll(message, match):
     if(str(message.getParticipant()) == "17204742885@s.whatsapp.net"):
         return TextMessageProtocolEntity("[10]", to=message.getFrom())
