@@ -307,7 +307,7 @@ def lord_of_the_rings(message, match):
     "She's always hungry. She always needs to feed. She must eat. All she gets is nasty orcses.\nAnd they doesn't taste very nice, does they, Precious?\nNo. Not very nice at all, my love.",
     "Hobbits really are amazing creatures. You can learn all that there is to know about them in a month, and yet after a hundred years, they can still surprise you.",
     "Release the prisoners!",
-    "We’re going too! You’d have to send us home tied up in a sack to stop us!",
+    "We're going too! You'd have to send us home tied up in a sack to stop us!",
     "Do we know that?",
     "Any chance of me seeing that old ring again? Hmm? The one I gave you?\nI'm sorry, uncle... I'm afraid I lost it.\nOh... pity. I should have liked to have held it one last time.",
     "Sneaking? Sneaking? Fat hobbit is always so polite. Smeagol shows them secret ways that nobody else could find, and they say sneak. Sneak? Very nice friend. Oh, yes, my precious. Very nice, very nice.\nAll right all right! You just startled me is all. What were you doing?\nSneaking.",
