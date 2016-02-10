@@ -605,7 +605,7 @@ def euro_pena(message, match):
       }
     )
     euro_value = str(response.body)
-    response = unirest.get("https://currency-exchange.p.mashape.com/exchange?from=MXN&q=1&to= ",
+    response = unirest.get("https://currency-exchange.p.mashape.com/exchange?from=MXN&q=1&to=HUN",
       headers={
         "X-Mashape-Key": "I4B9Cp8wPHmshVHJhXiAp9NEJ3y1p19ivP6jsno27gIAERBir8",
         "Accept": "text/plain"
