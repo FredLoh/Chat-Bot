@@ -94,6 +94,11 @@ class RouteLayer(YowInterfaceLayer):
             if(str(message.getBody())[0] != "/"):
                 if(str(message.getBody())[0] != "h"):
                     text = "beban"
+
+        if(str(message.getParticipant()) == "5218116618135@s.whatsapp.net"):
+            if(str(message.getBody())[0] != "/"):
+                if(str(message.getBody())[0] != "h"):
+                    text = "beban"
         #     routes.extend(SuperViews(self).routes)
         #     text = message.getBody()
         for route, callback in self.views:
