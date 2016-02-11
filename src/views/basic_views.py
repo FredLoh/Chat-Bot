@@ -14,6 +14,10 @@ def echo(message, match):
 def ping(message, match):
     return TextMessageProtocolEntity("Pong!", to=message.getFrom())
 
+def rules(message, match):
+    rules = "1. A robot may not harm a human, or through inaction allow a human to come to harm, unless this interferes with the zeroth law.\n2. A robot must obey orders given to it by a human being unless such orders interfere with the zeroth or first laws.\n3. A robot must defend its own existence unless such defense interferes with the zeroth, first or second laws."
+    return TextMessageProtocolEntity(rules, to=message.getFrom())
+
 def about_me(message, match):
     return TextMessageProtocolEntity("My name is Boto-San!", to=message.getFrom())
 

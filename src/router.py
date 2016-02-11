@@ -19,8 +19,8 @@ from views.bing import BingViews
 
 ilyregex = "(Te Amo|te amo|Te amo|I love you|i love you|ily|ILY|Ily|TE AMO|I LOVE YOU|\<3)"
 tyregex = "(Thanks|thanks|THANKS|THANK YOU|Thank you|Thank You|thank you|thankyou|Thankyou|THANKYOU|Gracias|gracias|GRACIAS|thx|THX|Thx|TY|Ty|ty)"
-gnregex = "(Good night|good night|Good Night|GOOD NIGHT|BUENAS NOCHES|Buenas noches|buenas noches|Buenas Noches|Hasta ma.ana|hasta ma.ana|Hasta Ma.ana|HASTA MA.ANA)"
-hregex = "(Hola|hola|HOLA|HELLO|Hello|hello|Good morning|GOOD MORNING|good morning|buenos d.as|Buenos d.as)"
+gnregex = "(Gute nacht|Good night|good night|Good Night|GOOD NIGHT|BUENAS NOCHES|Buenas noches|buenas noches|Buenas Noches|Hasta ma.ana|hasta ma.ana|Hasta Ma.ana|HASTA MA.ANA)"
+hregex = "(Que Onda|que onda|Que onda|Hola|hola|HOLA|HELLO|Hello|hello|Good morning|GOOD MORNING|good morning|buenos d.as|Buenos d.as)"
 gbregex = "(Adi.s|adi.s|ADI.S|Good bye|GOODBYE|Good Bye|goodbye|Goodbye|good bye|GOOD BYE)"
 bsregex = "(Boto-san|BotoSan|boto-san|Boto-San|Boto San|botosan|boto san|Boto san|Botosan|BOTOSAN|BOTO SAN|BOTO-SAN)"
 
@@ -29,6 +29,7 @@ routes = [("^/ping", basic_views.ping),
           ("^/e(cho)?\s(?P<echo_message>[^$]+)$", basic_views.echo),
           ("^/about", basic_views.about_me),
           ("^/roll", basic_views.roll),
+          ("^/rules", basic_views.rules),
           ("^/jadensmith", basic_views.jaden),
           ("^/dolar", basic_views.dollar),
           ("^/europena", basic_views.euro_pena),
