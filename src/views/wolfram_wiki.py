@@ -11,7 +11,7 @@ import wikipedia
 
 
 
-def wikipedia_query(self, message, match):
+def wikipedia_query(message, match):
     query = match.group("query")
     print("QUERY: " + query)
     result = wikipedia.summary(str(query), sentences=1)
