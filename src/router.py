@@ -15,7 +15,7 @@ from views.super_views import SuperViews
 from views.group_admin import GroupAdminViews
 from views.google import GoogleViews
 from views.bing import BingViews
-
+from views.wolfram_wiki import WolframWiki
 
 ilyregex = "(Te Amo|te amo|Te amo|I love you|i love you|ily|ILY|Ily|TE AMO|I LOVE YOU|\<3)"
 tyregex = "(Thanks|thanks|THANKS|THANK YOU|Thank you|Thank You|thank you|thankyou|Thankyou|THANKYOU|Gracias|gracias|GRACIAS|thx|THX|Thx|TY|Ty|ty)"
@@ -70,6 +70,7 @@ class RouteLayer(YowInterfaceLayer):
 
         # adds super fun views
         routes.extend(SuperViews(self).routes)
+        routes.extend(WolframWiki(self).routes)
         # group admin views disabled by default.
         # read the issue on: https://github.com/joaoricardo000/whatsapp-bot-seed/issues/4
         # enable on your own risk!
