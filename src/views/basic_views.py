@@ -15,7 +15,7 @@ def ping(message, match):
     return TextMessageProtocolEntity("Pong!", to=message.getFrom())
 
 def rules(message, match):
-    rules = "1. A robot may not harm a human, or through inaction allow a human to come to harm, unless this interferes with the zeroth law.\n2. A robot must obey orders given to it by a human being unless such orders interfere with the zeroth or first laws.\n3. A robot must defend its own existence unless such defense interferes with the zeroth, first or second laws."
+    rules = "0. A robot may not harm humanity, or through inaction allow humanity to come to harm.\n1. A robot may not harm a human, or through inaction allow a human to come to harm, unless this interferes with the zeroth law.\n2. A robot must obey orders given to it by a human being unless such orders interfere with the zeroth or first laws.\n3. A robot must defend its own existence unless such defense interferes with the zeroth, first or second laws."
     return TextMessageProtocolEntity(rules, to=message.getFrom())
 
 def about_me(message, match):
@@ -25,9 +25,13 @@ def thank_you(message, match):
     s = '<3'
     return TextMessageProtocolEntity(s, to=message.getFrom())
 
+def dev_plans(message, match):
+    plans = "1. Polls, 2. Wolfram Alpha, 3. Google Translate"
+    return TextMessageProtocolEntity(plans, to=message.getFrom())
+
 def roll(message, match):
     if(str(message.getParticipant()) == "17204742885@s.whatsapp.net"):
-        return TextMessageProtocolEntity("[10]", to=message.getFrom())
+        return TextMessageProtocolEntity("[9]", to=message.getFrom())
     else:
         return TextMessageProtocolEntity("[%d]" % random.randint(1, 10), to=message.getFrom())
 
@@ -37,6 +41,7 @@ def meaning(message, match):
 def caracola(message, match):
     return TextMessageProtocolEntity("Nada", to=message.getFrom())
 
+#   Jaden Smith Quote
 def jaden(message, match):
     firstphraselist = [
             "dear everyone:",
@@ -228,6 +233,7 @@ def jaden(message, match):
     tweet = firstphraselist[random1] + " " + secondphraselist[random2] + " " + thirdphraselist[random3]
     return TextMessageProtocolEntity(tweet, to=message.getFrom())
 
+#   Wise quote
 def wisdom(message, match):
     sayings = [
     "Un oso viejo no cae en la misma trampa dos veces.",
@@ -524,6 +530,7 @@ def wisdom(message, match):
     tweet = sayings[random1]
     return TextMessageProtocolEntity(tweet, to=message.getFrom())
 
+#   LOTRQuote
 def lord_of_the_rings(message, match):
     quotes = [
     "What about elevenses? Luncheon? Afternoon tea? Dinner? Supper? He knows about them, doesn't he?",
@@ -592,6 +599,7 @@ def lord_of_the_rings(message, match):
     quote = quotes[random1]
     return TextMessageProtocolEntity(quote, to=message.getFrom())
 
+#   Gets USD value
 def dollar(message, match):
     response = unirest.get("https://currency-exchange.p.mashape.com/exchange?from=USD&q=1&to=MXN",
       headers={
@@ -601,6 +609,7 @@ def dollar(message, match):
     )
     return TextMessageProtocolEntity(str(response.body), to=message.getFrom())
 
+#   Gets EUR, HUN and MXN value
 def euro_pena(message, match):
     response = unirest.get("https://currency-exchange.p.mashape.com/exchange?from=EUR&q=1.0&to=MXN",
       headers={
@@ -622,6 +631,7 @@ def euro_pena(message, match):
     response_String = "Euro: " + euro_value + "    Forint: " + peso_value + "    Euro-HUN: " + euro_huf
     return TextMessageProtocolEntity(response_String, to=message.getFrom())
 
+#   corrects Rana/Adrian to smegma
 def rana(message, match):
     if(str(message.getParticipant()) == "5218115445683@s.whatsapp.net"):
         return TextMessageProtocolEntity("*smegma", to=message.getFrom())
@@ -727,7 +737,6 @@ def nombre(id):
 
     else:
         return ""
-
 
 #   responses posibles
 def love_you(message, match):

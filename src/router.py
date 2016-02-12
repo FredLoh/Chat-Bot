@@ -28,6 +28,7 @@ bsregex = "(Boto-san|BotoSan|boto-san|Boto-San|Boto San|botosan|boto san|Boto sa
 routes = [("^/ping", basic_views.ping),
           ("^/e(cho)?\s(?P<echo_message>[^$]+)$", basic_views.echo),
           ("^/about", basic_views.about_me),
+          ("^/dev", basic_views.dev_plans),
           ("^/roll", basic_views.roll),
           ("^/rules", basic_views.rules),
           ("^/jadensmith", basic_views.jaden),
