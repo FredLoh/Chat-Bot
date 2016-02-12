@@ -21,10 +21,6 @@ def rules(message, match):
 def about_me(message, match):
     return TextMessageProtocolEntity("My name is Boto-San!", to=message.getFrom())
 
-def thank_you(message, match):
-    s = '<3'
-    return TextMessageProtocolEntity(s, to=message.getFrom())
-
 def dev_plans(message, match):
     plans = "1. Polls\n2. Wolfram Alpha\n3. Google Translate\n4. Whatsapp Plays Pokemon"
     return TextMessageProtocolEntity(plans, to=message.getFrom())
