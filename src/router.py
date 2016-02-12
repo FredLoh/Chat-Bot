@@ -33,7 +33,6 @@ routes = [("^/ping", basic_views.ping),
           ("^/jadensmith", basic_views.jaden),
           ("^/dolar", basic_views.dollar),
           ("^/europena", basic_views.euro_pena),
-          # ("^/q(uery)?\s(?P<query>[^$]+)$", wolfram_wiki.wikipedia_query),
           ("^/w", basic_views.wisdom),
           ("^/meaningoflife", basic_views.meaning),
           ("^/caracolamagica", basic_views.caracola),
@@ -89,14 +88,15 @@ class RouteLayer(YowInterfaceLayer):
         #     routes.append((".*", self.beban_spell_checker))
         # print("Participant: " + message.getParticipant())
         #
+        #  Ban Ed
         if(str(message.getParticipant()) == "5218116618135@s.whatsapp.net"):
             text = ""
-
+        #  Correct beban spelling
         if(str(message.getParticipant()) == "5218183660872@s.whatsapp.net"):
             if(str(message.getBody())[0] != "/"):
                 if(str(message.getBody())[0] != "h"):
                     text = "beban"
-
+        #  Correct ed spelling
         if(str(message.getParticipant()) == "5218116618135@s.whatsapp.net"):
             if(str(message.getBody())[0] != "/"):
                 if(str(message.getBody())[0] != "h"):
