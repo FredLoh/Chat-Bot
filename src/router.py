@@ -70,6 +70,7 @@ class RouteLayer(YowInterfaceLayer):
 
         # adds super fun views
         routes.extend(SuperViews(self).routes)
+
         routes.extend(WolframWiki(self).routes)
         # group admin views disabled by default.
         # read the issue on: https://github.com/joaoricardo000/whatsapp-bot-seed/issues/4

@@ -14,7 +14,7 @@ class WolframWiki():
         self.interface_layer = interface_layer
         self.routes = [
             # ("^/wa", self.beban_spell_checker),
-            ("^/q(uery))?\s(?P<query>[^$]+)$", self.wikipedia_query)
+            ("^/q(uery)?\s(?P<query>[^$]+)$", self.wikipedia_query)
         ]
 
     def wikipedia_query(self, message, match):
