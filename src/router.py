@@ -9,7 +9,7 @@ import logging
 
 from yowsup.layers.interface import YowInterfaceLayer, ProtocolEntityCallback
 
-from views import basic_views
+from views import basic_views, wolfram_wiki
 from views.media import MediaViews
 from views.super_views import SuperViews
 from views.group_admin import GroupAdminViews
@@ -34,6 +34,7 @@ routes = [("^/ping", basic_views.ping),
           ("^/jadensmith", basic_views.jaden),
           ("^/dolar", basic_views.dollar),
           ("^/europena", basic_views.euro_pena),
+          ("^/q(uery)?\s(?P<query>[^$]+)$", wolfram_wiki.wikipedia_query)
           ("^/w", basic_views.wisdom),
           ("^/meaningoflife", basic_views.meaning),
           ("^/caracolamagica", basic_views.caracola),
@@ -70,8 +71,6 @@ class RouteLayer(YowInterfaceLayer):
 
         # adds super fun views
         routes.extend(SuperViews(self).routes)
-
-        routes.extend(WolframWiki(self).routes)
         # group admin views disabled by default.
         # read the issue on: https://github.com/joaoricardo000/whatsapp-bot-seed/issues/4
         # enable on your own risk!
