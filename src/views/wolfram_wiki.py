@@ -13,5 +13,6 @@ import wikipedia
 
 def wikipedia_query(self, message, match):
     query = match.group("query")
-    result = wikipedia.summary(query, sentences=1)
+    print("QUERY: " + query)
+    result = wikipedia.summary(str(query), sentences=1)
     return TextMessageProtocolEntity(result, to=message.getFrom())
