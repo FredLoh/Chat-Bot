@@ -9,12 +9,13 @@ import logging
 
 from yowsup.layers.interface import YowInterfaceLayer, ProtocolEntityCallback
 
-from views import basic_views, wolfram_wiki
+from views import basic_views, trivia
 from views.media import MediaViews
 from views.super_views import SuperViews
-from views.group_admin import GroupAdminViews
 from views.google import GoogleViews
 from views.bing import BingViews
+from views.trivia import Trivia
+from .server import t
 
 ilyregex = "(Te Amo|te amo|Te amo|I love you|i love you|ily|ILY|Ily|TE AMO|I LOVE YOU|\<3)"
 tyregex = "(Thanks|thanks|THANKS|THANK YOU|Thank you|Thank You|thank you|thankyou|Thankyou|THANKYOU|Gracias|gracias|GRACIAS|thx|THX|Thx|TY|Ty|ty)"
@@ -25,6 +26,7 @@ bsregex = "(Boto-san|BotoSan|boto-san|Boto-San|Boto San|botosan|boto san|Boto sa
 
 # Basic regex routes
 routes = [("^/ping", basic_views.ping),
+          ("^!a", t.ask_question()),
           ("^/e(cho)?\s(?P<echo_message>[^$]+)$", basic_views.echo),
           ("^/about", basic_views.about_me),
           ("^/dev", basic_views.dev_plans),

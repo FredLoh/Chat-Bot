@@ -14,7 +14,7 @@ from yowsup.stacks.yowstack import YowStackBuilder
 
 from layers.notifications.notification_layer import NotificationsLayer
 from router import RouteLayer
-
+from views.trivia import Trivia
 
 class YowsupEchoStack(object):
     def __init__(self, credentials):
@@ -52,3 +52,5 @@ if __name__ == "__main__":
         # In case of disconnect, keeps connecting...
         server.start()
         logging.info("Restarting..")
+
+t = Trivia()
