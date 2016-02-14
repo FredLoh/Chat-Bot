@@ -5,7 +5,7 @@ import random
 import unirest
 
 def help(message, match):
-    help_msg = "/ping, /echo <msg>, /about, /roll, /jadensmith, /europena, /lotr, /w, /caracolamagica"
+    help_msg = "/ping, /echo <msg>, /about, /roll, /jadensmith, /europena, /lotr, /w, /caracolamagica, /rules"
     return TextMessageProtocolEntity(help_msg, to=message.getFrom())
 
 def echo(message, match):
