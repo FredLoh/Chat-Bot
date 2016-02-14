@@ -14,11 +14,11 @@ from yowsup.stacks.yowstack import YowStackBuilder
 
 from layers.notifications.notification_layer import NotificationsLayer
 from router import RouteLayer
-from views.trivia import Trivia
+
 
 class YowsupEchoStack(object):
     def __init__(self, credentials):
-        "Creates the stacks of the Yowsup Server,"
+        """Creates the stacks of the Yowsup Server,"""
         self.credentials = credentials
         stack_builder = YowStackBuilder().pushDefaultLayers(True)
 
@@ -35,7 +35,7 @@ class YowsupEchoStack(object):
             logging.info("#" * 50)
             logging.info("\tServer started. Phone number: %s" % self.credentials[0])
             logging.info("#" * 50)
-            self.stack.loop(timeout=0.5, discrete=0.5)
+            self.stack.loop(timeout=2.0, discrete=2.0)
         except AuthError as e:
             logging.exception("Authentication Error: %s" % e.message)
         except Exception as e:
@@ -48,9 +48,9 @@ if __name__ == "__main__":
 
     logging.basicConfig(stream=sys.stdout, level=config.logging_level, format=config.log_format)
     server = YowsupEchoStack(config.auth)
-    while True:
-        # In case of disconnect, keeps connecting...
-        server.start()
-        logging.info("Restarting..")
+    server.start()
+    # while True:
+    #     # In case of disconnect, keeps connecting...
+    #     server.start()
+    #     logging.info("Restarting..")
 
-t = Trivia()

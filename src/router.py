@@ -6,7 +6,7 @@
 import threading
 import re
 import logging
-
+from yowsup.layers.protocol_messages.protocolentities import TextMessageProtocolEntity
 from yowsup.layers.interface import YowInterfaceLayer, ProtocolEntityCallback
 
 from views import basic_views, trivia
@@ -15,7 +15,6 @@ from views.super_views import SuperViews
 from views.google import GoogleViews
 from views.bing import BingViews
 from views.trivia import Trivia
-from .server import t
 
 ilyregex = "(Te Amo|te amo|Te amo|I love you|i love you|ily|ILY|Ily|TE AMO|I LOVE YOU|\<3)"
 tyregex = "(Thanks|thanks|THANKS|THANK YOU|Thank you|Thank You|thank you|thankyou|Thankyou|THANKYOU|Gracias|gracias|GRACIAS|thx|THX|Thx|TY|Ty|ty)"
@@ -24,11 +23,16 @@ hregex = "(Que Onda|que onda|Que onda|Hola|hola|HOLA|HELLO|Hello|hello|Good morn
 gbregex = "(Adi.s|adi.s|ADI.S|Good bye|GOODBYE|Good Bye|goodbye|Goodbye|good bye|GOOD BYE)"
 bsregex = "(Boto-san|BotoSan|boto-san|Boto-San|Boto San|botosan|boto san|Boto san|Botosan|BOTOSAN|BOTO SAN|BOTO-SAN)"
 
+trivia_module = Trivia()
+
+
 # Basic regex routes
 routes = [("^/ping", basic_views.ping),
-          ("^!a", t.ask_question()),
           ("^/e(cho)?\s(?P<echo_message>[^$]+)$", basic_views.echo),
           ("^/about", basic_views.about_me),
+          ("^!q", trivia_module.ask_question),
+          ("^!giveup", trivia_module.provide_answer),
+          ("^!a?\s(?P<answer>[^$]+)$", trivia_module.check_answer),
           ("^/dev", basic_views.dev_plans),
           ("^/roll", basic_views.roll),
           ("^/rules", basic_views.rules),
@@ -58,6 +62,7 @@ class RouteLayer(YowInterfaceLayer):
             For more complex handling, like asynchronous file upload and sending, it creates a object passing 'self',
             so the callback can access the 'self.toLower' method
         """
+
         super(RouteLayer, self).__init__()
 
         # Google views to handle tts, search and youtube
@@ -83,13 +88,15 @@ class RouteLayer(YowInterfaceLayer):
         text = message.getBody()
         print("Participant: " + message.getParticipant())
         print(message.getBody())
-        # text = "123"
-        # - Beban Spell checker
-        #
-        # if(str(message.getFrom()) == "17204742885@s.whatsapp.net"):
-        #     routes.append((".*", self.beban_spell_checker))
-        # print("Participant: " + message.getParticipant())
-        #
+
+        # if message.getBody() == "!q":
+        # elif message.getBody()[:2] == "!a":
+        #     if trivia_module.check_answer(message.getBody()[2:]):
+        # #         print "k"
+        #     else:
+        #         print "kk"
+        #         #incorrect
+
         #  Ban Ed
         if(str(message.getParticipant()) == "5218116618135@s.whatsapp.net"):
             text = ""
