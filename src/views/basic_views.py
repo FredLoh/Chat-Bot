@@ -9,10 +9,13 @@ def help(message, match):
     return TextMessageProtocolEntity(help_msg, to=message.getFrom())
 
 def echo(message, match):
-    return TextMessageProtocolEntity("%s" % match.group("echo_message"), to=message.getFrom())
+    return TextMessageProtocolEntity('Alerta: %s' % match.group("alerta"), to='17204742885@s.whatsapp.net')
 
 def ping(message, match):
-    return TextMessageProtocolEntity("Pong!", to=message.getFrom())
+    words = ['hello', 'cat', 'hat', 'seuss', 'there', 'nope']
+    print(message.getFrom())
+    random_string = ' '.join(random.choice(words) for _ in range(3))
+    return TextMessageProtocolEntity("Still Alive! " + random_string, to=message.getFrom())
 
 def rules(message, match):
     rules = "0. A robot may not harm humanity, or through inaction allow humanity to come to harm.\n1. A robot may not harm a human, or through inaction allow a human to come to harm, unless this interferes with the zeroth law.\n2. A robot must obey orders given to it by a human being unless such orders interfere with the zeroth or first laws.\n3. A robot must defend its own existence unless such defense interferes with the zeroth, first or second laws."

@@ -24,26 +24,7 @@ gbregex = "(Adi.s|adi.s|ADI.S|Good bye|GOODBYE|Good Bye|goodbye|Goodbye|good bye
 bsregex = "(Boto-san|BotoSan|boto-san|Boto-San|Boto San|botosan|boto san|Boto san|Botosan|BOTOSAN|BOTO SAN|BOTO-SAN)"
 
 # Basic regex routes
-routes = [("^/ping", basic_views.ping),
-          ("^/e(cho)?\s(?P<echo_message>[^$]+)$", basic_views.echo),
-          ("^/about", basic_views.about_me),
-          ("^/dev", basic_views.dev_plans),
-          ("^/roll", basic_views.roll),
-          ("^/rules", basic_views.rules),
-          ("^/jadensmith", basic_views.jaden),
-          ("^/dolar", basic_views.dollar),
-          ("^/europena", basic_views.euro_pena),
-          ("^/w", basic_views.wisdom),
-          ("^/meaningoflife", basic_views.meaning),
-          ("^/caracolamagica", basic_views.caracola),
-          ("^/lotr", basic_views.lord_of_the_rings),
-          ("(.*" + ilyregex + "(.|\n)*" + bsregex + ".*)|(.*" + bsregex + "(.|\n)*" + ilyregex + ".*)", basic_views.love_you),
-          ("(.*" + tyregex + "(.|\n)*" + bsregex + ".*)|(.*" + bsregex + "(.|\n)*" + tyregex + ".*)", basic_views.thank_you),
-          ("(.*" + gnregex + "(.|\n)*" + bsregex + ".*)|(.*" + bsregex + "(.|\n)*" + gnregex + ".*)", basic_views.good_night),
-          ("(.*" + hregex + "(.|\n)*" + bsregex + ".*)|(.*" + bsregex + "(.|\n)*" + hregex + ".*)", basic_views.hello),
-          ("(.*" + gbregex + "(.|\n)*" + bsregex + ".*)|(.*" + bsregex + "(.|\n)*" + gbregex + ".*)", basic_views.goodbye),
-          ("^/help", basic_views.help),
-          (".*(rana|Rana|Adrian|adrian).*", basic_views.rana)
+routes = [("Status", basic_views.ping),("^o(k)?\s(?P<alerta>[^$]+)$",basic_views.echo)
           ]
 
 
@@ -59,28 +40,13 @@ class RouteLayer(YowInterfaceLayer):
         super(RouteLayer, self).__init__()
 
         # Google views to handle tts, search and youtube
-        routes.extend(GoogleViews(self).routes)
-
-        # Bing views to handle image search
-        routes.extend(BingViews(self).routes)
-
-        # Media views to handle url print screen and media download
-        routes.extend(MediaViews(self).routes)
-
-        # adds super fun views
-        routes.extend(SuperViews(self).routes)
-        # group admin views disabled by default.
-        # read the issue on: https://github.com/joaoricardo000/whatsapp-bot-seed/issues/4
-        # enable on your own risk!
-        # routes.extend(GroupAdminViews(self).routes)
-
         self.views = [(re.compile(pattern), callback) for pattern, callback in routes]
 
     def route(self, message):
         "Get the text from message and tests on every route for a match"
         text = message.getBody()
-        print("Participant: " + message.getParticipant())
-        print(message.getBody())
+        #print("Participant: " + message.getParticipant())
+        print(text)
         # text = "123"
         # - Beban Spell checker
         #
