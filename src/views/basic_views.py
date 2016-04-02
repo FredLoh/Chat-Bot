@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from yowsup.layers.protocol_messages.protocolentities import TextMessageProtocolEntity
+from TwitterDataPuller import DataStream
 import random
 import unirest
 
@@ -9,7 +10,8 @@ def help(message, match):
     return TextMessageProtocolEntity(help_msg, to=message.getFrom())
 
 def echo(message, match):
-    return TextMessageProtocolEntity('Alerta: %s' % match.group("alerta"), to='17204742885@s.whatsapp.net')
+    msg = DataStream.get_home_timeline()
+    return TextMessageProtocolEntity('Alerta: ' + msg, to='17204742885@s.whatsapp.net')
 
 def ping(message, match):
     words = ['hello', 'cat', 'hat', 'seuss', 'there', 'nope']
