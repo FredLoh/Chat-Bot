@@ -10,7 +10,8 @@ def help(message, match):
     return TextMessageProtocolEntity(help_msg, to=message.getFrom())
 
 def echo(message, match):
-    msg = DataStream.get_home_timeline()
+    d = DataStream()
+    msg = d.get_home_timeline()
     return TextMessageProtocolEntity('Alerta: ' + msg, to='17204742885@s.whatsapp.net')
 
 def ping(message, match):
