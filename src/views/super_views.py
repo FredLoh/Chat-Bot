@@ -11,7 +11,7 @@ class SuperViews():
         self.url_print_sender = UrlPrintSender(self.interface_layer)
         self.routes = [
             # ("/(?P<evenOrOdd>even|odd)$", self.even_or_odd),
-            ("^beban", self.beban_spell_checker)
+           # ("^beban", self.beban_spell_checker)
         ]
 
 
@@ -23,27 +23,27 @@ class SuperViews():
         else:
             return TextMessageProtocolEntity("[%d]\nYou lose!" % num, to=message.getFrom())
 
-    def beban_spell_checker(self, message=None, match=None, to=None):
-        # print(message.getBody())
-        correctionList = ""
-        text = message.getBody()
-        d = enchant.DictWithPWL("es_MX","wordList.txt")
-        d_en = enchant.Dict("en_US")
+    # def beban_spell_checker(self, message=None, match=None, to=None):
+    #     print(message.getBody())
+    #     correctionList = ""
+    #     text = message.getBody()
+    #     d = enchant.DictWithPWL("es_MX","wordList.txt")
+    #     d_en = enchant.Dict("en_US")
 
-        wordList = text.split()
-        for word in wordList:
-          if(word.isalnum() == True):
-            print(word)
-            if(d.check(word) == False):
-                # if(d_en.check(word) == False):
-              solutions = d.suggest(word)
-              print(solutions)
-              sol = str(solutions[0])
-              if(sol.isalnum() == False):
-                correctionList += sol + "* "
-        if (correctionList != ""):
-            print(correctionList)
-            return TextMessageProtocolEntity(correctionList, to=message.getFrom())
+    #     wordList = text.split()
+    #     for word in wordList:
+    #       if(word.isalnum() == True):
+    #         print(word)
+    #         if(d.check(word) == False):
+    #             # if(d_en.check(word) == False):
+    #           solutions = d.suggest(word)
+    #           print(solutions)
+    #           sol = str(solutions[0])
+    #           if(sol.isalnum() == False):
+    #             correctionList += sol + "* "
+    #     if (correctionList != ""):
+    #         print(correctionList)
+    #         return TextMessageProtocolEntity(correctionList, to=message.getFrom())
 
 
 HELP_TEXT = """ [HELP]

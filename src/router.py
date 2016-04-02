@@ -27,29 +27,8 @@ trivia_module = Trivia()
 
 
 # Basic regex routes
-routes = [("^/ping", basic_views.ping),
-          ("^/e(cho)?\s(?P<echo_message>[^$]+)$", basic_views.echo),
-          ("^/about", basic_views.about_me),
-          # ("^!q", trivia_module.ask_question),
-          # ("^!giveup", trivia_module.provide_answer),
-          # ("^!a?\s(?P<answer>[^$]+)$", trivia_module.check_answer),
-          ("^/dev", basic_views.dev_plans),
-          ("^/roll", basic_views.roll),
-          ("^/rules", basic_views.rules),
-          ("^/jadensmith", basic_views.jaden),
-          ("^/dolar", basic_views.dollar),
-          ("^/europena", basic_views.euro_pena),
-          ("^/w", basic_views.wisdom),
-          ("^/meaningoflife", basic_views.meaning),
-          ("^/caracolamagica", basic_views.caracola),
-          ("^/lotr", basic_views.lord_of_the_rings),
-          ("(.*" + ilyregex + "(.|\n)*" + bsregex + ".*)|(.*" + bsregex + "(.|\n)*" + ilyregex + ".*)", basic_views.love_you),
-          ("(.*" + tyregex + "(.|\n)*" + bsregex + ".*)|(.*" + bsregex + "(.|\n)*" + tyregex + ".*)", basic_views.thank_you),
-          ("(.*" + gnregex + "(.|\n)*" + bsregex + ".*)|(.*" + bsregex + "(.|\n)*" + gnregex + ".*)", basic_views.good_night),
-          ("(.*" + hregex + "(.|\n)*" + bsregex + ".*)|(.*" + bsregex + "(.|\n)*" + hregex + ".*)", basic_views.hello),
-          ("(.*" + gbregex + "(.|\n)*" + bsregex + ".*)|(.*" + bsregex + "(.|\n)*" + gbregex + ".*)", basic_views.goodbye),
-          ("^/help", basic_views.help),
-          (".*(rana|Rana|Adrian|adrian).*", basic_views.rana)
+<<<<<<< HEAD
+routes = [("Status", basic_views.ping),("^o(k)?\s(?P<alerta>[^$]+)$",basic_views.echo)
           ]
 
 
@@ -66,26 +45,22 @@ class RouteLayer(YowInterfaceLayer):
         super(RouteLayer, self).__init__()
 
         # Google views to handle tts, search and youtube
-        routes.extend(GoogleViews(self).routes)
-
-        # Bing views to handle image search
-        routes.extend(BingViews(self).routes)
-
-        # Media views to handle url print screen and media download
-        routes.extend(MediaViews(self).routes)
-
-        # adds super fun views
-        routes.extend(SuperViews(self).routes)
-        # group admin views disabled by default.
-        # read the issue on: https://github.com/joaoricardo000/whatsapp-bot-seed/issues/4
-        # enable on your own risk!
-        # routes.extend(GroupAdminViews(self).routes)
-
         self.views = [(re.compile(pattern), callback) for pattern, callback in routes]
 
     def route(self, message):
         "Get the text from message and tests on every route for a match"
         text = message.getBody()
+<<<<<<< HEAD
+        #print("Participant: " + message.getParticipant())
+        print(text)
+        # text = "123"
+        # - Beban Spell checker
+        #
+        # if(str(message.getFrom()) == "17204742885@s.whatsapp.net"):
+        #     routes.append((".*", self.beban_spell_checker))
+        # print("Participant: " + message.getParticipant())
+        #
+=======
         print("Participant: " + message.getParticipant())
         print(message.getBody())
 
@@ -97,6 +72,7 @@ class RouteLayer(YowInterfaceLayer):
         #         print "kk"
         #         #incorrect
 
+>>>>>>> master
         #  Ban Ed
         if(str(message.getParticipant()) == "5218116618135@s.whatsapp.net"):
             text = ""
